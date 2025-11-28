@@ -14,6 +14,7 @@ function Edit() {
   const [price, setPrice] = useState("");
   const [available, setAvailable] = useState("");
   const [image, setImage] = useState("");
+  const [category, setCategory] = useState('Tour Trong Nước');
   const [description, setDescription] = useState("");
 
   useEffect(() => {
@@ -27,6 +28,7 @@ function Edit() {
         setPrice(data.price.toString());
         setAvailable(data.available.toString());
         setImage(data.image);
+        setCategory(data.category);
         setDescription(data.description);
       } catch (error) {
         console.error("Lỗi khi tải tour:", error);
@@ -47,6 +49,7 @@ function Edit() {
         price: Number(price),
         available: available,
         image,
+        category,
         description
       });
 
@@ -132,6 +135,21 @@ function Edit() {
             value={image}
             onChange={e => setImage(e.target.value)}
           />
+        </div>
+
+        <div>
+          <label htmlFor="selectOption" className="block font-medium mb-1">
+            Category
+          </label>
+          <select
+            value={category}
+            onChange={e => setCategory(e.target.value)}
+            name="category"
+            className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="Tour Trong Nước">Tour Trong Nước</option>
+            <option value="Tour Quốc Tế">Tour Quốc Tế</option>
+          </select>
         </div>
 
         <div>

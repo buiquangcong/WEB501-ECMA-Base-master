@@ -1,14 +1,15 @@
 {
   "tours": [
     {
-      "id": 1,
       "name": "Hà Nội - Sapa 3N2D",
       "destination": "Sapa",
       "duration": "3 ngày 2 đêm",
       "price": 2500000,
+      "available": "15",
       "image": "https://picsum.photos/400/300?random=1",
+      "category": "Tour Trong Nước",
       "description": "Khám phá Sapa với những ruộng bậc thang tuyệt đẹp",
-      "available": 15
+      "id": 1
     },
     {
       "id": 2,
@@ -17,6 +18,7 @@
       "duration": "2 ngày 1 đêm",
       "price": 1800000,
       "image": "https://picsum.photos/400/300?random=2",
+      "category": "Tour Trong Nước",
       "description": "Du thuyền vịnh Hạ Long - Kỳ quan thiên nhiên thế giới",
       "available": 20
     },
@@ -27,18 +29,9 @@
       "duration": "4 ngày 3 đêm",
       "price": 3200000,
       "image": "https://picsum.photos/400/300?random=3",
+      "category": "Tour Trong Nước",
       "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
       "available": 10
-    },
-    {
-      "name": "Áo dài việt nam",
-      "destination": "111",
-      "duration": "11",
-      "price": 11,
-      "image": "https://picsum.photos/400/300?random=4",
-      "description": "qqqq",
-      "available": 111,
-      "id": 4
     },
     {
       "name": "Hạ Long-Quảng Ninh",
@@ -47,7 +40,8 @@
       "price": 1000000,
       "available": "10",
       "image": "https://www.bing.com/th/id/OIP.LqGELd6X9x5ux1PlZWADMwHaE7?w=232&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
-      "description": "Du Lịch Hạ Long",
+      "category": "Tour Trong Nước",
+      "description": "Du Lịch Hạ Long 1",
       "id": 5
     }
   ]

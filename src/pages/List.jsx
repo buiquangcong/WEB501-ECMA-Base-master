@@ -41,7 +41,6 @@ function List() {
       <h1 className="text-2xl font-semibold mb-6">Danh sách Tour</h1>
 
       <div className="flex justify-start mb-2">
-        {/* Nút chuyển sang trang Thêm mới */}
         <Link
           to="/add"
           className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 flex items-center gap-1"
@@ -61,6 +60,7 @@ function List() {
               <th className="px-4 py-2 border border-gray-300 text-left">Thời gian</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Giá</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Còn lại</th>
+              <th className="px-4 py-2 border border-gray-300 text-left">Danh mục</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Hành động</th>
             </tr>
           </thead>
@@ -87,9 +87,9 @@ function List() {
                     {Number(tour.price).toLocaleString()} VNĐ
                   </td>
                   <td className="px-4 py-2 border border-gray-300">{tour.available}</td>
+                  <td className="px-4 py-2 border border-gray-300">{tour.category}</td>
                   <td className="px-4 py-2 border border-gray-300">
                     <div className="flex gap-2">
-                      {/* 2. SỬA: Chuyển nút Sửa thành Link */}
                       <Link
                         to={`/edit/${tour.id}`}
                         className="bg-orange-500 text-white px-3 py-1 rounded hover:bg-orange-600 text-sm"
