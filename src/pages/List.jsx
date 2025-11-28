@@ -21,12 +21,9 @@ function List() {
       .finally(() => setLoading(false));
   }, []);
 
-  // Đã xóa hàm createTour vì không dùng nữa (chuyển sang trang Add rồi)
 
   const deleteTour = async (id) => {
     if (!window.confirm("Bạn chắc chắn muốn xóa Tour này chứ?")) return;
-
-    // Mẹo: Không setLoading(true) ở đây để tránh bảng bị biến mất, nhìn sẽ mượt hơn
     try {
       await axios.delete(`${API_URL}/${id}`);
       // Cập nhật giao diện: Lọc bỏ tour vừa xóa

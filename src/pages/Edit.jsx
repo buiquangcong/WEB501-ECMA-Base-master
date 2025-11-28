@@ -32,18 +32,6 @@ const Edit = () => {
     fetchTour();
   }, [id, navigate]);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, image: reader.result });
-        setErrors({ ...errors, image: "" });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const validateForm = () => {
     let newErrors = {};
     let isValid = true;
@@ -126,19 +114,11 @@ const Edit = () => {
 
         <div>
           <label className="block mb-1 font-medium">Ảnh đại diện</label>
-          <input type="file" accept="image/*"
+          <input type="text"
             className="border p-2 w-full rounded mb-2"
-            onChange={handleFileChange}
+            onChange={(e) => setFormData({ ...formData, image: e.target.value })}
           />
-
-          {formData.image && (
-            <div>
-              <p className="text-sm text-gray-500">Ảnh hiện tại:</p>
-              <img src={formData.image} alt="Preview" className="h-32 w-auto rounded border object-cover" />
-            </div>
-          )}
         </div>
-
         <div>
           <label className="block mb-1 font-medium">Mô tả</label>
           <textarea rows="3"
