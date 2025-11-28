@@ -3,39 +3,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const Add = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    destination: "",
-    duration: "",
-    price: 0,
-    image: "",
-    description: "",
-    available: 1
-  });
+function Add() {
+  const [name, setName] = useState("");
+  const [destination, setDestination] = useState("");
+  const [duration, setDuration] = useState("");
+  const [price, setPrice] = useState("");
+  const [available, setAvailable] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
 
-  // Đã bỏ useState({}) cho errors
 
   const navigate = useNavigate();
-  const API_URL = "http://localhost:3001/tours";
 
-  const handleChange = (e) => {
-    const { name, value, type } = e.target;
-    // Chuyển đổi giá trị thành số nếu là input type="number"
-    const newValue = type === 'number' ? parseFloat(value) || 0 : value;
 
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: newValue
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async event => {
+    event.preventDefault();
     try {
-      await axios.post(API_URL, formData);
+      await axios.post('http://localhost:3001/tours', {
+        name,
+        destination,
+        duration,
+        price: Number(price),
+        available,
+        image,
+        description
+      });
       toast.success("Thêm tour thành công!");
       navigate("/list");
+
     } catch (error) {
       console.error("Lỗi khi thêm tour:", error);
       toast.error("Thêm tour thất bại: " + error.message);
@@ -53,8 +48,8 @@ const Add = () => {
             name="name"
             type="text"
             className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={e => setName(e.target.value)}
           />
         </div>
 
@@ -65,8 +60,8 @@ const Add = () => {
               name="destination"
               type="text"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-              value={formData.destination}
-              onChange={handleChange}
+              value={destination}
+              onChange={e => setDestination(e.target.value)}
             />
           </div>
           <div>
@@ -75,8 +70,8 @@ const Add = () => {
               name="duration"
               type="text"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-              value={formData.duration}
-              onChange={handleChange}
+              value={duration}
+              onChange={e => setDuration(e.target.value)}
             />
           </div>
         </div>
@@ -88,8 +83,8 @@ const Add = () => {
               name="price"
               type="number"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-              value={formData.price}
-              onChange={handleChange}
+              value={price}
+              onChange={e => setPrice(e.target.value)}
             />
 
           </div>
@@ -99,8 +94,8 @@ const Add = () => {
               name="available"
               type="number"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-              value={formData.available}
-              onChange={handleChange}
+              value={available}
+              onChange={e => setAvailable(e.target.value)}
             />
           </div>
         </div>
@@ -111,8 +106,8 @@ const Add = () => {
             name="image"
             type="text"
             className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
-            value={formData.image}
-            onChange={handleChange}
+            value={image}
+            onChange={e => setImage(e.target.value)}
           />
         </div>
 
@@ -122,8 +117,8 @@ const Add = () => {
             name="description"
             rows="3"
             className="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={formData.description}
-            onChange={handleChange}
+            value={description}
+            onChange={e => setDescription(e.target.value)}
           ></textarea>
         </div>
 
