@@ -4,7 +4,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import List from "./pages/List";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit"; // Nhớ import trang Edit nếu đã tạo
-
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 function App() {
   return (
     <>
@@ -37,10 +38,10 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <a href="/login" className="hover:text-gray-200">
               Đăng nhập
             </a>
-            <a href="#" className="hover:text-gray-200">
+            <a href="/register" className="hover:text-gray-200">
               Đăng ký
             </a>
           </div>
@@ -59,9 +60,9 @@ function App() {
           <Route path="/" element={<List />} />
           <Route path="/list" element={<List />} />
           <Route path="/add" element={<Add />} />
-
-          {/* Route cho trang sửa cần có :id */}
           <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
 

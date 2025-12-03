@@ -59,8 +59,7 @@ function Add() {
           <div>
             <label className="block mb-1 font-medium">Điểm đến</label>
             <input
-              name="destination"
-              type="text"
+              name="destination" type="text"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
               value={destination}
               onChange={e => setDestination(e.target.value)}
@@ -69,8 +68,7 @@ function Add() {
           <div>
             <label className="block mb-1 font-medium">Thời gian</label>
             <input
-              name="duration"
-              type="text"
+              name="duration" type="text"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
               value={duration}
               onChange={e => setDuration(e.target.value)}
@@ -82,8 +80,7 @@ function Add() {
           <div>
             <label className="block mb-1 font-medium">Giá (VNĐ)</label>
             <input
-              name="price"
-              type="number"
+              name="price" type="number"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
               value={price}
               onChange={e => setPrice(e.target.value)}
@@ -93,8 +90,7 @@ function Add() {
           <div>
             <label className="block mb-1 font-medium">Số lượng còn</label>
             <input
-              name="available"
-              type="number"
+              name="available" type="number"
               className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
               value={available}
               onChange={e => setAvailable(e.target.value)}
@@ -105,8 +101,7 @@ function Add() {
         <div>
           <label className="block mb-1 font-medium">Ảnh đại diện (URL)</label>
           <input
-            name="image"
-            type="text"
+            name="image" type="text"
             className={`border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400`}
             value={image}
             onChange={e => setImage(e.target.value)}
@@ -118,9 +113,7 @@ function Add() {
             Category
           </label>
           <select
-            value={category}
-            onChange={e => setCategory(e.target.value)}
-            id="selectOption"
+            value={category} onChange={e => setCategory(e.target.value)}
             name="category"
             className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -128,18 +121,14 @@ function Add() {
             <option value="Tour Quốc Tế">Tour Quốc Tế</option>
           </select>
         </div>
-
         <div>
           <label className="block mb-1 font-medium">Mô tả chi tiết</label>
           <textarea
-            name="description"
-            rows="3"
-            className="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            name="description" className="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={description}
             onChange={e => setDescription(e.target.value)}
           ></textarea>
         </div>
-
         <button type="submit" className="bg-blue-600 text-white font-bold px-4 py-2 rounded w-full hover:bg-blue-700 transition">
           Lưu Tour Mới
         </button>

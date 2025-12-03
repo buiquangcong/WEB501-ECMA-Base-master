@@ -44,5 +44,13 @@
       "description": "Du Lịch Hạ Long 1",
       "id": 5
     }
+  ],
+  "users": [
+    {
+      "email": "buicong908@gmail.com",
+      "password": "$2a$10$yu0O6.TBiIy3/WoK6.icPeFzvtkoLPZvYy6UhGxEJMhqZNvb4q6LS",
+      "name": "Bùi Quang Công",
+      "id": 1
+    }
   ]
 }
