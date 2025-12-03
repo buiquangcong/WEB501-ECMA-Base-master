@@ -41,7 +41,7 @@
       "available": "10",
       "image": "https://www.bing.com/th/id/OIP.LqGELd6X9x5ux1PlZWADMwHaE7?w=232&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
       "category": "Tour Trong Nước",
-      "description": "Du Lịch Hạ Long 1",
+      "description": "Du Lịch Hạ Long\n",
       "id": 5
     }
   ],
@@ -51,6 +51,12 @@
       "password": "$2a$10$yu0O6.TBiIy3/WoK6.icPeFzvtkoLPZvYy6UhGxEJMhqZNvb4q6LS",
       "name": "Bùi Quang Công",
       "id": 1
+    },
+    {
+      "email": "ab@gmail.com",
+      "password": "$2a$10$3I6rT7IDz84DZaQb1s9LR.KIRfVgshtOmsBzPQM.cH1nld/CZ.yu6",
+      "name": "aa",
+      "id": 2
     }
   ]
 }
