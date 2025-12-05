@@ -24,7 +24,6 @@ function List() {
     if (!window.confirm("Bạn chắc chắn muốn xóa Tour này chứ?")) return;
     try {
       await axios.delete(`${API_URL}/${id}`);
-      // Cập nhật giao diện: Lọc bỏ tour vừa xóa
       setTours(tours.filter((t) => t.id !== id));
     } catch (err) {
       toast.error("Xóa thất bại: " + err.message);
