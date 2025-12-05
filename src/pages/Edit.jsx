@@ -37,9 +37,18 @@ function Edit() {
     };
     fetchTour();
   }, [id]);
-
+  const validation = () => {
+    if (!name || !destination || !duration || !price || !available || !image || !description) {
+      toast.error("Vui lòng điền đầy đủ thông tin!");
+      return false;
+    }
+    return true;
+  }
   const handleSubmit = async event => {
     event.preventDefault();
+    if (!validation()) {
+      return;
+    }
     try {
       const API_URL = `http://localhost:3001/tours/${id}`;
       await axios.put(API_URL, {

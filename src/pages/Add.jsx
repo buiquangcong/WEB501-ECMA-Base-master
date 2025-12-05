@@ -16,9 +16,19 @@ function Add() {
 
   const navigate = useNavigate();
 
+  const validation = () => {
+    if (!name || !destination || !duration || !price || !available || !image || !description) {
+      toast.error("Vui lòng điền đầy đủ thông tin!");
+      return false;
+    }
+    return true;
+  }
 
   const handleSubmit = async event => {
     event.preventDefault();
+    if (!validation()) {
+      return;
+    }
     try {
       await axios.post('http://localhost:3001/tours', {
         name,

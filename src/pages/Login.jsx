@@ -29,6 +29,7 @@ function Login() {
     }
 
     return (
+
         <div className="p-6 flex justify-center items-center h-screen bg-blue-300">
             <form className="w-96 bg-white p-6 rounded-lg shadow-lg space-y-6" onSubmit={handleSubmit}>
                 <h1 className="text-2xl font-semibold text-center">Đăng nhập</h1>

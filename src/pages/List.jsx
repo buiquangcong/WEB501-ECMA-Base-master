@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-// 1. QUAN TRỌNG: Phải import Link
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function List() {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const API_URL = "http://localhost:3001/tours";
 
   useEffect(() => {
@@ -21,7 +20,6 @@ function List() {
       .finally(() => setLoading(false));
   }, []);
 
-
   const deleteTour = async (id) => {
     if (!window.confirm("Bạn chắc chắn muốn xóa Tour này chứ?")) return;
     try {
@@ -29,13 +27,39 @@ function List() {
       // Cập nhật giao diện: Lọc bỏ tour vừa xóa
       setTours(tours.filter((t) => t.id !== id));
     } catch (err) {
-      alert("Xóa thất bại: " + err.message);
+      toast.error("Xóa thất bại: " + err.message);
+    }
+  };
+  const status = async (id, currentStatus) => {
+    try {
+      const newStatus = !currentStatus;
+      const newTours = tours.map((t) =>
+        t.id === id ? { ...t, status: newStatus } : t
+      );
+      setTours(newTours);
+      await axios.patch(`${API_URL}/${id}`, {
+        status: newStatus
+      });
+      toast.success("Đã cập nhật trạng thái!");
+
+    } catch (error) {
+      toast.error("Lỗi cập nhật trạng thái!");
+      const revertTours = tours.map((t) =>
+        t.id === id ? { ...t, status: currentStatus } : t
+      );
+      setTours(revertTours);
     }
   };
 
   if (loading) return <p className="mt-6 text-center">Đang tải dữ liệu...</p>;
   if (error) return <p className="mt-6 text-center text-red-500">{error}</p>;
-
+  const handleSearch = () => {
+    console.log("handleSearch");
+    const data = courses.filter((course) =>
+      course.name.toLowerCase().includes(keyword.toLocaleLowerCase())
+    );
+    setCourses(data);
+  };
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách Tour</h1>
@@ -61,6 +85,7 @@ function List() {
               <th className="px-4 py-2 border border-gray-300 text-left">Giá</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Còn lại</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Danh mục</th>
+              <th className="px-4 py-2 border border-gray-300 text-left">Trạng thái</th>
               <th className="px-4 py-2 border border-gray-300 text-left">Hành động</th>
             </tr>
           </thead>
@@ -88,6 +113,17 @@ function List() {
                   </td>
                   <td className="px-4 py-2 border border-gray-300">{tour.available}</td>
                   <td className="px-4 py-2 border border-gray-300">{tour.category}</td>
+                  <td className="px-4 py-2 border text-center">
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="sr-only peer"
+                        checked={tour.status === true}
+                        onChange={() => status(tour.id, tour.status)}
+                      />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                  </td>
                   <td className="px-4 py-2 border border-gray-300">
                     <div className="flex gap-2">
                       <Link
