@@ -53,13 +53,6 @@ function List() {
 
   if (loading) return <p className="mt-6 text-center">Đang tải dữ liệu...</p>;
   if (error) return <p className="mt-6 text-center text-red-500">{error}</p>;
-  const handleSearch = () => {
-    console.log("handleSearch");
-    const data = courses.filter((course) =>
-      course.name.toLowerCase().includes(keyword.toLocaleLowerCase())
-    );
-    setCourses(data);
-  };
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách Tour</h1>
