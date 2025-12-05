@@ -41,8 +41,8 @@ function List() {
       });
       toast.success("Đã cập nhật trạng thái!");
 
-    } catch (error) {
-      toast.error("Lỗi cập nhật trạng thái!");
+    } catch (err) {
+      toast.error("Lỗi cập nhật trạng thái!" + err.message);
       const revertTours = tours.map((t) =>
         t.id === id ? { ...t, status: currentStatus } : t
       );
