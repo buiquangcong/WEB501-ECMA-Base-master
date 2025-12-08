@@ -9,8 +9,7 @@
       "image": "https://picsum.photos/400/300?random=1",
       "category": "Tour Trong Nước",
       "description": "Khám phá Sapa với những ruộng bậc thang tuyệt đẹp",
-      "id": 1,
-      "status": true
+      "id": 1
     },
     {
       "id": 2,
@@ -21,8 +20,7 @@
       "image": "https://picsum.photos/400/300?random=2",
       "category": "Tour Trong Nước",
       "description": "Du thuyền vịnh Hạ Long - Kỳ quan thiên nhiên thế giới",
-      "available": 20,
-      "status": false
+      "available": 20
     },
     {
       "id": 3,
@@ -33,8 +31,7 @@
       "image": "https://picsum.photos/400/300?random=3",
       "category": "Tour Trong Nước",
       "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
-      "available": 10,
-      "status": true
+      "available": 10
     },
     {
       "name": "Hạ Long-Quảng Ninh",
@@ -45,8 +42,7 @@
       "image": "https://www.bing.com/th/id/OIP.LqGELd6X9x5ux1PlZWADMwHaE7?w=232&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
       "category": "Tour Trong Nước",
       "description": "Du Lịch Hạ Long\n",
-      "id": 5,
-      "status": false
+      "id": 5
     }
   ],
   "users": [

@@ -21,7 +21,6 @@ function Register() {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-
         try {
             await axios.post("http://localhost:3001/register", form);
             toast.success("Đăng ký thành công!");
@@ -37,30 +36,14 @@ function Register() {
                 <h2 className="text-2xl font-bold text-center mb-6">Đăng ký</h2>
 
                 <form className="space-y-4" onSubmit={handleRegister}>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Tên"
-                        value={form.name}
-                        onChange={handleChange}
+                    <input type="text" name="name" placeholder="Tên" value={form.name} onChange={handleChange}
                         className="w-full px-4 py-3 border rounded-lg"
                     />
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={form.email}
-                        onChange={handleChange}
+                    <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange}
                         className="w-full px-4 py-3 border rounded-lg"
                     />
-
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Mật khẩu"
-                        value={form.password}
-                        onChange={handleChange}
+                    <input type="password" name="password" placeholder="Mật khẩu" value={form.password} onChange={handleChange}
                         className="w-full px-4 py-3 border rounded-lg"
                     />
 

@@ -23,7 +23,6 @@ function Add() {
     }
     return true;
   }
-
   const handleSubmit = async event => {
     event.preventDefault();
     if (!validation()) {
@@ -42,17 +41,14 @@ function Add() {
       });
       toast.success("Thêm tour thành công!");
       navigate("/list");
-
     } catch (error) {
       console.error("Lỗi khi thêm tour:", error);
       toast.error("Thêm tour thất bại: " + error.message);
     }
   }
-
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
       <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Thêm Tour Mới</h2>
-
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block mb-1 font-medium">Tên Tour</label>
